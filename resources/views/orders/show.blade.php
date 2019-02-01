@@ -9,7 +9,7 @@
                 <div class="panel-heading">Dashboard</div>
 				
 				
-	<a href="/../laravelis/svari8/public/orders" class="btn btn-default"> Go back</a> 
+	<a href="/../nfq2/public/orders" class="btn btn-default"> Go back</a> 
 	<h1>{{$order->title}}</h1>
 	
 			<div>
@@ -17,7 +17,7 @@
 			</div>	
 				
 				
-	<img style="width:80%" src="/../laravelis/svari8/storage/app/public/cover_images/{{$order->cover_image}}">
+	<img style="width:80%" src="/../nfq2/storage/app/public/cover_images/{{$order->cover_image}}">
 	<br>
 	<br>
 					<div>
@@ -28,14 +28,22 @@
 		<small>Written on {{ $order->created_at}}</small>
 		<hr>
 		
-				<a href="/../laravelis/svari8/public/orders/{{$order->id}}/edit" class="btn btn-default">Edit</a>
 
-		<!-- Forma skirti delete funkcijai -->
-					{!! Form::open(['action' => ['OrdersController@destroy', $order->id], 'method' => 'POST', 'class' => 'pull-right'])!!}
-						<!-- DELETE request -->
-						{{Form::hidden ('_method', 'DELETE')}}
-						{{Form::submit ('Delete', ['class' => 'btn btn-danger'])}}
-					{!!Form::close()!!}
+									<td>
+											{!! Form::open(['action' => ['OrdersControllerKopinam@getCloneOrder', $order->id], 'method' => 'POST', 'class' => 'pull-right'])!!}							
+											{{Form::submit ('Kopijuoti', ['class' => 'btn btn-primary'])}}
+											{!!Form::close()!!}
+										</td>
+
+                                        <td><a href="/../nfq2/public/orders/{{$order->id}}/edit" class="btn btn-default">Taisyti</a></td>
+									
+									<td>
+												<!-- Atkelta tas pats is show.blade.php -->
+												{!! Form::open(['action' => ['OrdersController@destroy', $order->id], 'method' => 'POST', 'class' => 'pull-right'])!!}
+													{{Form::hidden ('_method', 'DELETE')}}
+													{{Form::submit ('Trynti', ['class' => 'btn btn-danger'])}}
+												{!!Form::close()!!}
+										</td>
 		
 @endsection
 

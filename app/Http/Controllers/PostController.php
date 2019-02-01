@@ -90,7 +90,7 @@ class PostController extends Controller
         
         $post->delete();
         
-        return redirect ('/table')->with('success', 'Post Removed');
+        return redirect ('/posts')->with('success', 'Áraðas paðalintas');
 }
 
 }

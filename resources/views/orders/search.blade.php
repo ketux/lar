@@ -26,32 +26,41 @@
 								<th>Kaina</th>
 								<th>Foto</th>
 
-								<th></th>
-								<th></th>
-							</tr>
+								<th>
+									<th>Veiksmai</th>
+								</th>								
+								
+								</tr>
 							</thead>	
 								@foreach($orders as $order)
 									<tr>
-										<td><a href="http://localhost/laravelis/svari8/public/orders/{{$order->id}}">{{ $order->pavadinimas}}</a></td>
+										<td><a href="/../nfq2/public/orders/{{$order->id}}">{{ $order->pavadinimas}}</a></td>
 										<td>{{$order->aprasymas}}</td>
 										<td>{{$order->kaina}}</td>
-										<!--<td>{{$order->cover_image}}</td> -->
+										<td><img style="width:50px" src="/../nfq2/storage/app/public/cover_images/{{$order->cover_image}}"></td>
 									
+										<td>
+											{!! Form::open(['action' => ['OrdersControllerKopinam@getCloneOrder', $order->id], 'method' => 'POST', 'class' => 'pull-right'])!!}
+																	
+											{{Form::submit ('Kopijuoti', ['class' => 'btn btn-primary'])}}
+											{!!Form::close()!!}
+										</td>
+										
 									<td>
                                                 
                                                 {!! Form::open(['action' => ['OrdersController@getClone', $order->id], 'method' => 'POST', 'class' => 'pull-right'])!!}
                                                     
-                                                    {{Form::submit ('Order', ['class' => 'btn btn-success'])}}
+                                                    {{Form::submit ('Perku', ['class' => 'btn btn-success'])}}
                                                 {!!Form::close()!!}
                                         </td>
 
-                                        <td><a href="/../laravelis/svari8/public/orders/{{$order->id}}/edit" class="btn btn-default">Edit</a></td>
+                                        <td><a href="/../nfq2/public/orders/{{$order->id}}/edit" class="btn btn-default">Taisyti</a></td>
 									
 									<td>
 												<!-- Atkelta tas pats is show.blade.php -->
 												{!! Form::open(['action' => ['OrdersController@destroy', $order->id], 'method' => 'POST', 'class' => 'pull-right'])!!}
 													{{Form::hidden ('_method', 'DELETE')}}
-													{{Form::submit ('Delete', ['class' => 'btn btn-danger'])}}
+													{{Form::submit ('Trynti', ['class' => 'btn btn-danger'])}}
 												{!!Form::close()!!}
 										</td>
 										

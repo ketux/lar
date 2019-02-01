@@ -18,7 +18,7 @@
 
 <body>
 
-	<a href="http://localhost/laravelis/svari8/public/ieskau" class="btn btn-default"> Go back</a> 
+	<a href="/../nfq2/public/ieskau" class="btn btn-default"> Go back</a> 
 
 
 <div class="container">
@@ -49,7 +49,10 @@
 			<th>@sortablelink('kaina')</th>
 			 <th>@sortablelink('Foto')</th>
             <th>@sortablelink('sukurta')</th>
-			<th></th>
+			
+			<th>
+			<th>Veiksmai</th>
+			</th>
 
         </tr>
 
@@ -63,14 +66,15 @@
                     <td>{{ $product->pavadinimas }}</td>
                     <td>{{ $product->aprasymas }}</td>
 					<td>{{ $product->kaina }}</td>
-					<td>{{ $product->cover_image }}</td>
-                    <td>{{ $product->created_at->format('d-m-Y') }}</td>
+					<td>	<img style="width:50px" src="/../nfq2/storage/app/public/cover_images/{{$post->cover_image}}">
+	</td>                    
+					<td>{{ $product->created_at->format('d-m-Y') }}</td>
 					
 					<td>
 						<!-- Atkelta tas pats is show.blade.php -->
 						{!! Form::open(['action' => ['SearchPostsController@destroy', $product->id], 'method' => 'POST', 'class' => 'pull-right'])!!}
 						{{Form::hidden ('_method', 'DELETE')}}
-						{{Form::submit ('Delete', ['class' => 'btn btn-danger'])}}
+						{{Form::submit ('Trynti', ['class' => 'btn btn-danger'])}}
 						{!!Form::close()!!}
 					</td>
 

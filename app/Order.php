@@ -11,7 +11,7 @@ class Order extends Model
   use Sortable;
 	
     
-    protected $fillable = ['id', 'pavadinimas', 'aprasymas', 'kaina' ];
+    protected $fillable = ['id', 'pavadinimas', 'aprasymas', 'kaina', 'cover_image' ];
 	public $sortable = ['id', 'pavadinimas', 'aprasymas', 'kaina'];
 
 

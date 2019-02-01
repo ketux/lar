@@ -191,7 +191,7 @@ class PostsController extends Controller
         }
         $post->save();
         
-        return redirect ('/table')->with('success', 'Atnaujinta');
+        return redirect ('/posts')->with('success', 'Atnaujinta');
     }
 
 	
@@ -209,7 +209,7 @@ class PostsController extends Controller
         
         //check for correct user
         //if (auth()->user()->id !==$post->user_id){
-          //  return redirect('/posts')->with('error', 'Unautherized page');
+          //  return redirect('/posts')->with('error', 'Neautorizuotas puslapis');
         //}
         
         if($post->cover_image != 'noimage.jpg') {
@@ -220,7 +220,7 @@ class PostsController extends Controller
         
         $post->delete();
         
-        return redirect ('/table')->with('success', 'Įrašas pašalintas');
+        return redirect ('/posts')->with('success', 'Įrašas pašalintas');
 }
 
  

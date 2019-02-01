@@ -61,7 +61,7 @@ class TableController extends Controller
 		$post->cover_image = $fileNameToStore;
 		$post->save();
 		
-		return redirect ('/pradinis')->with('success', 'Sukurta');
+		return redirect ('/table')->with('success', 'Sukurta');
 
 		
 		//return 123;
@@ -103,7 +103,7 @@ class TableController extends Controller
 			// Filename to store
 			$fileNameToStore = $filename.'_'.time().'.'.$extension;
 			//upload image
-			$path = $request->file('cover_image')->storeAS('http://localhost/laravelis/svari8/public/cover_images', $fileNameToStore);
+			$path = $request->file('cover_image')->storeAS('/../nfq2/public/cover_images', $fileNameToStore);
 		} 
 		
 		//create post
@@ -116,7 +116,7 @@ class TableController extends Controller
 		}
 		$post->save();
 		
-		return redirect ('/pradinis')->with('success', 'Atnaujinta');	
+		return redirect ('/table')->with('success', 'Atnaujinta');	
     }
    
    public function destroy($id)
@@ -128,6 +128,6 @@ class TableController extends Controller
 		Storage::delete('cover_images/'.$post->cover_image);		
 		}
 		$post->delete();
-		return redirect ('/table')->with('success', 'Post Removed');
+		return redirect ('/table')->with('success', 'Áraðas paðalintas');
     }
 }

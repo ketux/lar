@@ -1,4 +1,4 @@
-@extends('layouts.app')
+﻿@extends('layouts.app')
 
 @section('content')
 
@@ -36,25 +36,36 @@
 								<th>@sortablelink('kaina')</th>
 								<th>@sortablelink('Foto')</th>
 
-								<th></th>
-								<th></th>
-							</tr>
+							<th>
+								<th>Veiksmai</th>		
+							</th>							
+								</tr>
 								@foreach($orders as $order)
 									<tr>
-										<td><a href="/../laravelis/svari8/public/orders/{{$order->id}}">{{ $order->pavadinimas}}</a></td>
+										<td><a href="/../nfq2/public/orders/{{$order->id}}">{{ $order->pavadinimas}}</a></td>
 										<td>{{$order->aprasymas}}</td>
 										<td>{{$order->kaina}}</td>
-										<th>	<img style="width:80%" src="/../laravelis/svari7/storage/app/public/cover_images/{{$order->cover_image}}">
-</th>
+										<th>	<img style="width:50px" src="/../nfq2/storage/app/public/cover_images/{{$order->cover_image}}">
+									</th>
+								
 										<td>
-											<a href="/../laravelis/svari8/public/orders/{{$order->id}}/edit" class="btn btn-default">Edit</a>
+
+											{!! Form::open(['action' => ['OrdersControllerKopinam@getCloneOrder', $order->id], 'method' => 'POST', 'class' => 'pull-right'])!!}
+																	
+											{{Form::submit ('Kopijuoti', ['class' => 'btn btn-primary'])}}
+											{!!Form::close()!!}
+										</td>
+										
+										
+										<td>
+											<a href="/../nfq2/public/orders/{{$order->id}}/edit" class="btn btn-default">Taisyti</a>
 										</td>
 										
 										<td>
 												<!-- Atkelta tas pats is show.blade.php -->
 												{!! Form::open(['action' => ['OrdersController@destroy', $order->id], 'method' => 'POST', 'class' => 'pull-right'])!!}
 													{{Form::hidden ('_method', 'DELETE')}}
-													{{Form::submit ('Delete', ['class' => 'btn btn-danger'])}}
+													{{Form::submit ('Trynti', ['class' => 'btn btn-danger'])}}
 												{!!Form::close()!!}
 										</td>
 

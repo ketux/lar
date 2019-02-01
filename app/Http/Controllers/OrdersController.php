@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Order;
 use App\Post;
-//use App\Product;
 use DB;
 
 class OrdersController extends Controller
@@ -110,7 +109,7 @@ class OrdersController extends Controller
 	  // create new Order based on Post's data
 	  $order = Order::create($data);
 
-  return redirect ('/orders')->with('success', 'Success');
+  return redirect ('/orders')->with('success', 'Klonuota sėkmingai');
   
 	}
 }

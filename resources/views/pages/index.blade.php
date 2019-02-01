@@ -6,7 +6,7 @@
 					<p>Tai laravel projektas</p>
 					
 
-					<p>	<a class="btn btn-danger btn-lg" href="http://localhost/laravelis/svari8/public/table" role="button">Sąrašas</a>
+					<p>	<a class="btn btn-danger btn-lg" href="/../nfq2/public/table" role="button">Sąrašas</a>
 					
 					
 					</a>
